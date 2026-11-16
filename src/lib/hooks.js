@@ -7,7 +7,7 @@ import { onLive } from './live.js';
 export function useApi(path, { live = [], cache = true } = {}) {
   const [state, setState] = useState(() => {
     const cached = cache && path ? cacheRead(path) : null;
-    return { data: cached?.data ?? null, error: null, loading: Boolean(path), stale: Boolean(cached) };
+    return { data: cached?.data ?? null, error: null, loading: Boolean(path), stale: false };
   });
   const seq = useRef(0);
   const load = useCallback(async ({ quiet = false } = {}) => {

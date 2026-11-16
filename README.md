@@ -6,6 +6,37 @@ One Node.js server, one SQLite file, and clients for the web, Windows desktop an
 > **وظیفه** یک سامانه متن‌باز مدیریت وظایف و گزارش کار تیمی است؛ کاملاً فارسی و راست‌به‌چپ، با تقویم شمسی،
 > قابل نصب روی سرور خودتان یا حتی یک کامپیوتر در شبکه شرکت. راهنمای فارسی: [راهنما.md](راهنما.md)
 
+![Team board: every person's open tasks, colour-coded by status](docs/screenshots/board.png)
+
+<table>
+  <tr>
+    <td width="68%"><img src="docs/screenshots/task.png" alt="Task details with history and chat"></td>
+    <td><img src="docs/screenshots/mobile-board.png" alt="Team board on a phone"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/reports.png" alt="Management reports: workload and status per person"></td>
+    <td><img src="docs/screenshots/mobile-task.png" alt="A task on a phone, with voice, photo, file and location buttons"></td>
+  </tr>
+</table>
+
+<details>
+<summary>More screenshots</summary>
+
+**Status columns view**
+![Board in status-column view](docs/screenshots/board-status.png)
+
+**Daily work reports**
+![Daily reports, with who has not reported yet](docs/screenshots/daily.png)
+
+</details>
+
+All names and tasks in the screenshots are the built-in demo data.
+
+## Download
+
+Ready-made builds are on the [Releases](https://github.com/aghasizade/vazifeh/releases) page:
+the Windows installer and the Android APK. Both connect to a Vazifeh server you run yourself (see Quick start).
+
 ## Why
 
 Most task tools are built for English, the Gregorian calendar and always-on internet. Teams in Iran and other

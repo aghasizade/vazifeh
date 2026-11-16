@@ -62,3 +62,6 @@ desktop.ini
 .idea/
 *.tmp
 ~$*
+
+# Local screenshot data
+.data-*/
