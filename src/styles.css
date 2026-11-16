@@ -1,0 +1,98 @@
+@import "vazirmatn/Vazirmatn-Variable-font-face.css";
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Vazirmatn", system-ui, sans-serif;
+  --font-code: "Cascadia Mono", "Consolas", ui-monospace, monospace;
+
+  --color-paper: #f4f1ea;
+  --color-paper-2: #ebe6db;
+  --color-line: #e2dccf;
+  --color-ink-950: #0b131d;
+  --color-ink-900: #14202e;
+  --color-ink-800: #1e2d3f;
+  --color-ink-700: #2c3f55;
+  --color-ink-600: #435569;
+  --color-ink-500: #5b6b7e;
+  --color-ink-400: #8593a3;
+  --color-ink-300: #b4bdc8;
+  --color-copper-50: #fdf3e7;
+  --color-copper-100: #fae2c4;
+  --color-copper-300: #eeb26d;
+  --color-copper-400: #e0913f;
+  --color-copper-500: #c97422;
+  --color-copper-600: #a95b17;
+  --color-copper-700: #854614;
+  --color-sage-50: #eef6f3;
+  --color-sage-500: #0f766e;
+  --color-sage-600: #0b5e57;
+}
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink-900);
+    font-feature-settings: "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--color-copper-300); color: var(--color-ink-950); }
+  input, select, textarea, button { font: inherit; }
+}
+
+@layer components {
+  .card {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 16px;
+    box-shadow: 0 1px 0 rgba(20, 32, 46, 0.03), 0 12px 32px -26px rgba(20, 32, 46, 0.35);
+  }
+  .input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #d8d1c2;
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.9rem;
+    color: var(--color-ink-900);
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .input:focus { outline: none; border-color: var(--color-copper-400); box-shadow: 0 0 0 3px rgba(224, 145, 63, .18); }
+  .input:disabled { background: var(--color-paper); color: var(--color-ink-500); }
+  .input.invalid { border-color: #dc2626; }
+  .label { display: block; font-size: 0.75rem; font-weight: 600; color: var(--color-ink-700); margin-bottom: 0.35rem; }
+  .code { font-family: var(--font-code); letter-spacing: 0.02em; direction: ltr; unicode-bidi: isolate; }
+  .num { font-variant-numeric: tabular-nums; }
+  .eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; color: var(--color-ink-500); }
+  .grid-paper {
+    background-image:
+      linear-gradient(rgba(20, 32, 46, .045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20, 32, 46, .045) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+/* Phones: 16px inputs stop mobile browsers from zooming in on focus. Kept inside the components layer
+   so padding utilities (room for an icon inside the field) still win. */
+@layer components {
+  @media (max-width: 640px) {
+    .input { font-size: 16px; padding-block: 0.6rem; }
+  }
+}
+
+/* Horizontally scrolling chip rows (tabs, filters) scroll by swipe without a visible bar. */
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Thin scrollbars that match the paper palette. */
+* { scrollbar-width: thin; scrollbar-color: #cfc7b6 transparent; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .35s ease both; }
+
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff !important; }
+  .no-print { display: none !important; }
+  .print-area { box-shadow: none !important; border: 0 !important; }
+}

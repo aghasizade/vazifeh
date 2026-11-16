@@ -1,0 +1,24 @@
+// Used only for this project, passed explicitly: gradlew -I google-mirror.init.gradle ...
+// Google's main Maven host (dl.google.com / maven.google.com) answers 404 from Iran,
+// even over a VPN; Google's own edge mirror serves the same artifacts.
+def mirror = 'https://redirector.gvt1.com/edgedl/android/maven2/'
+
+def useMirror = { RepositoryHandler repos ->
+    repos.withType(MavenArtifactRepository).configureEach { repo ->
+        def url = repo.url.toString()
+        if (url.contains('dl.google.com/dl/android/maven2') || url.contains('maven.google.com')) {
+            repo.url = mirror
+        }
+    }
+}
+
+// beforeSettings: the settings script resolves plugins while it runs, so the hook must be in place first.
+beforeSettings { settings ->
+    useMirror(settings.pluginManagement.repositories)
+    useMirror(settings.dependencyResolutionManagement.repositories)
+}
+
+allprojects {
+    useMirror(buildscript.repositories)
+    useMirror(repositories)
+}

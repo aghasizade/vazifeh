@@ -1,0 +1,64 @@
+# --- Dependencies & build output ---
+node_modules/
+dist/
+build-output/
+build-output-*/
+release-*/
+release/
+*.exe
+*.blockmap
+*.apk
+*.aab
+*.msi
+*.zip
+*.tar.gz
+
+# --- Real data (never commit) ---
+.data/
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+backups/
+uploads/
+
+# --- Secrets ---
+.env
+.env.*
+android/keystore/
+android/keystore.properties
+*.jks
+*.keystore
+*.p12
+*.pem
+*.key
+android/local.properties
+
+# --- Android build artefacts ---
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/build/
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/.idea/
+*.iml
+
+# --- QA data ---
+.qa-data/
+qa/qa-users.json
+qa/shots*/
+qa/sched-data/
+
+# --- Logs, OS & editor junk ---
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.tmp
+~$*
